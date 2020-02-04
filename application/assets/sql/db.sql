@@ -4,6 +4,16 @@ CREATE DATABASE `ci_blog_test`;
 
 USE `ci_blog_test`;
 
+CREATE TABLE `users`(
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY(`id`)
+);
+
 CREATE TABLE `categories`(
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) NOT NULL,

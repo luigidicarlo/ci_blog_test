@@ -35,6 +35,11 @@ $route['categories/(:any)'] = 'categories/show/$1';
 $route['comments/store/(:any)'] = 'comments/store/$1';
 
 /**
+ * Users Routes
+ */
+$route['register'] = 'users/create';
+
+/**
  * Static Pages Routes
  */
 $route['(:any)'] = 'pages/index/$1';

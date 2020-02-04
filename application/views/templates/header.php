@@ -27,5 +27,15 @@
       <li>
         <a href="/categories">Categories</a>
       </li>
+      <li>
+        <a href="/register">Register</a>
+      </li>
     </ul>
   </nav>
+
+  <!-- Flash messages -->
+  <?php if ($this->session->flashdata('user_registered')) : ?>
+    <p style="color: orange">
+      <?php echo $this->session->flashdata('user_registered'); ?>
+    </p>
+  <?php endif; ?>
