@@ -12,6 +12,15 @@ CREATE TABLE `categories`(
   PRIMARY KEY(`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+  `data` blob NOT NULL,
+  PRIMARY KEY (id),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+);
+
 CREATE TABLE `posts`(
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
@@ -22,6 +31,18 @@ CREATE TABLE `posts`(
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY(`category_id`) REFERENCES `categories`(`id`),
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE `comments`(
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `content` TEXT NOT NULL,
+  `post_id` INT NOT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY(`post_id`) REFERENCES `posts`(`post_id`),
   PRIMARY KEY(`id`)
 );
 

@@ -53,9 +53,11 @@ class Posts extends CI_Controller
       show_404();
     }
 
+    $comments = $this->Comment->get_comments($post['id']);
+
     $title = $post['title'];
 
-    $data = compact(['title', 'post']);
+    $data = compact(['title', 'post', 'comments']);
 
     $this->load->view('templates/header');
     $this->load->view('posts/show', $data);

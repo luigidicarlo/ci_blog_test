@@ -30,6 +30,11 @@ $route['categories/delete/(:any)'] = 'categories/delete/$1';
 $route['categories/(:any)'] = 'categories/show/$1';
 
 /**
+ * Comments Routes
+ */
+$route['comments/store/(:any)'] = 'comments/store/$1';
+
+/**
  * Static Pages Routes
  */
 $route['(:any)'] = 'pages/index/$1';
